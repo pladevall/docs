@@ -76,7 +76,7 @@
         "databases/clickhouse",
         "databases/redshift",
         "databases/snowflake", 
-        "databases/bigQuery"
+        "databases/bigquery"
       ]
     },
     {
