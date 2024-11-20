@@ -1,0 +1,93 @@
+Since I cannot access the MySQL documentation content from the provided URL, I'll create a standard MySQL database connection guide following the same format as the BigQuery documentation:
+
+```mdx
+# Connecting MySQL to Index
+
+To establish a connection between Index and your MySQL database, you'll need to configure a dedicated user account with appropriate permissions.
+
+## Connection Requirements
+
+To successfully connect, you'll need these essential pieces of information:
+- Host URL
+- Port Number
+- Database Name
+- Username
+- Password
+
+**Host Format Example:**
+```text
+mysql.your-domain.com
+```
+
+**Port Format Example:**
+```text
+3306
+```
+
+**Database Name Example:**
+```text
+production_db
+```
+
+## User Account Setup Guide
+
+### Creating Your MySQL User
+
+1. Connect to MySQL as root or an admin user
+2. Create a new user with the following command:
+
+```sql
+CREATE USER 'index_user'@'%' IDENTIFIED BY 'your_secure_password';
+```
+
+### Configuring Permissions
+
+Grant the necessary permissions to your new user:
+
+```sql
+GRANT SELECT ON database_name.* TO 'index_user'@'%';
+FLUSH PRIVILEGES;
+```
+
+### Required Permissions
+
+At minimum, the user account needs:
+- SELECT privilege on required tables
+- SHOW VIEW privilege (if using views)
+- SHOW DATABASES privilege
+
+## Network Configuration
+
+### Firewall Settings
+
+Ensure your MySQL server accepts connections from Index's IP addresses:
+- Configure your firewall rules
+- Update MySQL's `bind-address` if needed
+- Verify port 3306 is accessible
+
+### SSL/TLS Configuration
+
+If using SSL/TLS encryption:
+- Enable SSL in your MySQL server
+- Provide the CA certificate if required
+- Configure SSL mode in connection settings
+
+## Common Issues
+
+### Connection Timeout
+If you encounter connection timeouts:
+- Verify the host and port are correct
+- Check firewall rules
+- Confirm network connectivity
+
+### Access Denied
+If you see "Access Denied" errors:
+- Verify username and password
+- Check user permissions
+- Confirm the user's host matching pattern
+
+### SSL/TLS Issues
+For SSL-related errors:
+- Verify SSL is properly configured
+- Check certificate validity
+- Confirm SSL requirements match server configuration
