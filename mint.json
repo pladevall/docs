@@ -27,11 +27,6 @@
   },
   "anchors": [
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
       "name": "Changelog",
       "icon": "newspaper",
       "url": "https://index.app/blog/?category=changelog"
