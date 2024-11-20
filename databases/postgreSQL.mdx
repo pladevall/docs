@@ -1,0 +1,88 @@
+# Connecting PostgreSQL to Index
+
+To connect Index with your PostgreSQL database, you'll need a properly configured user account with appropriate data access permissions.
+
+## Connection Requirements
+
+You'll need to provide five essential pieces of information:
+- Host URL
+- Port Number
+- Database Name
+- Username
+- Password
+
+### Host Configuration
+
+**Host Format Example:**
+```text
+mydb.domain-for-cloud-provider.com
+```
+
+This represents your database's access URL.
+
+### Port Configuration
+
+**Default Port Example:**
+```text
+5432
+```
+
+PostgreSQL typically uses port 5432 by default.
+
+### Database Configuration
+
+**Database Name Example:**
+```text
+postgres
+```
+
+### Authentication Details
+
+**Username Example:**
+```text
+index_user
+```
+
+**Password Example:**
+```text
+******
+```
+
+## User Account Setup
+
+We recommend creating a dedicated user and role specifically for Index access. You can set this up using psql or your preferred database client.
+
+### Setting Up Database Access
+
+Execute the following SQL commands, replacing the placeholders with your specific details:
+
+```sql
+-- Create dedicated user
+CREATE USER index_user WITH PASSWORD '<secure-password>';
+
+-- Grant database access
+GRANT CONNECT ON DATABASE <database> TO index_user;
+
+-- Grant schema permissions
+GRANT USAGE ON SCHEMA <schema> TO index_user;
+
+-- Grant table access
+GRANT SELECT ON ALL TABLES IN SCHEMA <schema> TO index_user;
+
+-- Set up automatic access to new tables
+ALTER DEFAULT PRIVILEGES IN SCHEMA <schema> 
+GRANT SELECT ON TABLES TO index_user;
+```
+
+### Finalizing Connection
+
+After creating the user account, enter the credentials in Index's database connection form:
+1. Input the username and password
+2. Test the connection to verify proper configuration
+
+## Best Practices
+
+- Create a dedicated user account for Index
+- Use a strong, unique password
+- Grant only necessary permissions
+- Test the connection after setup
