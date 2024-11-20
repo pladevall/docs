@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@index.app"
     }
   ],
   "topbarCtaButton": {
@@ -35,7 +35,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.index.app"
     },
     {
       "name": "Community",
@@ -55,6 +55,15 @@
         "introduction",
         "quickstart",
         "development"
+      ]
+    },
+    {
+      "group": "Databases",
+      "pages": [
+        "PostgreSQL",
+        "Redshift",
+        "Snowflake", 
+        "BigQuery"
       ]
     },
     {
