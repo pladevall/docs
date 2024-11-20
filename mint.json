@@ -39,7 +39,7 @@
     {
       "name": "Changelog",
       "icon": "newspaper",
-      "url": "https://index.app/changelog"
+      "url": "https://index.app/blog/?category=changelog"
     }
   ],
   "navigation": [
