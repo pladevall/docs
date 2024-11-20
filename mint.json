@@ -72,11 +72,11 @@
       "group": "Databases",
       "pages": [
         "databases/postgreSQL",
-        "databases/mysql",
+        "databases/mySQL",
         "databases/clickhouse",
         "databases/redshift",
         "databases/snowflake", 
-        "databases/bigquery"
+        "databases/bigQuery"
       ]
     },
     {
