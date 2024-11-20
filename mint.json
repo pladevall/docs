@@ -49,13 +49,12 @@
     },
     {
       "group": "Databases",
-      "pages": [
-        "databases/postgreSQL",
+      "pages": [  
+        "databases/bigQuery",
+        "databases/clickhouse", 
         "databases/mySQL",
-        "databases/clickhouse",
-        "databases/redshift",
-        "databases/snowflake", 
-        "databases/bigQuery"
+        "databases/postgreSQL",
+        "databases/snowflake" 
       ]
     }
   ],

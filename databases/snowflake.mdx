@@ -1,0 +1,50 @@
+## Connecting to Your Snowflake Database
+
+To establish a connection between Index and your Snowflake database, you'll need a Snowflake user account with appropriate permissions. Enter these credentials in Index:
+
+- Account Identifier
+- Database
+- User
+- Password
+
+## Creating a Dedicated Snowflake User
+
+For optimal security and management, we recommend creating a specific user and role for Index. Here's how to set it up:
+
+## Step-by-Step Configuration
+
+**1. Create a New Worksheet**
+Navigate to your Snowflake console's Worksheets section and create a fresh worksheet.
+
+**2. Set Up Role and User**
+Execute the following SQL script, replacing the bracketed placeholders with your specific details:
+
+```sql
+-- Create Role
+CREATE ROLE IF NOT EXISTS INDEX;
+GRANT USAGE ON WAREHOUSE <COMPUTE_WH> TO ROLE INDEX;
+GRANT USAGE ON DATABASE <MY_DATABASE> TO ROLE INDEX;
+GRANT USAGE ON SCHEMA <MY_SCHEMA> TO ROLE INDEX;
+GRANT SELECT ON ALL TABLES IN SCHEMA <MY_SCHEMA> TO ROLE INDEX;
+
+-- Create User
+CREATE USER IF NOT EXISTS index PASSWORD = '<unique-password>' MUST_CHANGE_PASSWORD = FALSE;
+GRANT ROLE INDEX TO USER index;
+ALTER USER index SET DEFAULT_WAREHOUSE = <COMPUTE_WH>;
+```
+
+**3. Configure Index Connection**
+Input the user credentials in the Index database configuration form and verify the connection.
+
+## Troubleshooting Common Issues
+
+**No Active Warehouse Error**
+If you encounter: "No active warehouse selected in current session. Select an active warehouse using the 'use warehouse' command."
+- Verify that the user has a default warehouse configured
+- Confirm the role has proper warehouse usage permissions
+
+**Database Access Error**
+If you see: "Cannot perform SELECT. This session does not have a current database. Call 'USE DATABASE', or use a qualified name."
+- Double-check the database name in your configuration
+- Ensure the user has DEFAULT_ROLE set
+- Verify all required permissions are granted for the database and schema
