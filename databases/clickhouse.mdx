@@ -1,0 +1,113 @@
+# Connecting ClickHouse to Index
+
+To establish a connection between Index and your ClickHouse database, you'll need to configure proper authentication credentials and access permissions.
+
+## Connection Requirements
+
+To successfully connect, you'll need these essential pieces of information:
+- Host URL
+- Port Number
+- Database Name
+- Username
+- Password
+- SSL Settings (optional)
+
+**Host Format Example:**
+```text
+clickhouse.your-domain.com
+```
+
+**Port Format Example:**
+```text
+8443
+```
+
+**Database Example:**
+```text
+production_db
+```
+
+## User Setup Guide
+
+### Creating Your ClickHouse User
+
+1. Connect to ClickHouse using a client with admin privileges
+2. Create a dedicated user for Index:
+
+```sql
+CREATE USER index_user IDENTIFIED WITH plaintext_password BY 'your_secure_password';
+```
+
+### Configuring Permissions
+
+Grant necessary permissions to the Index user:
+
+```sql
+-- Grant database access
+GRANT SELECT ON production_db.* TO index_user;
+
+-- Grant show tables permission
+GRANT SHOW TABLES ON production_db.* TO index_user;
+
+-- Grant describe permission
+GRANT DESCRIBE ON production_db.* TO index_user;
+```
+
+## Required Permissions
+
+The Index user needs these minimum privileges:
+- SELECT on required tables
+- SHOW TABLES
+- DESCRIBE
+- SHOW DATABASES (if accessing multiple databases)
+
+## Connection Methods
+
+### HTTP Interface
+
+For HTTP connections:
+- Default port: 8443 (SSL) or 8123 (non-SSL)
+- Supports basic authentication
+- Recommended for most setups
+
+### Native Interface
+
+For native protocol:
+- Default port: 9440 (SSL) or 9000 (non-SSL)
+- Higher performance
+- Requires additional configuration
+
+## SSL Configuration
+
+### Enabling SSL
+
+If using SSL connections:
+1. Ensure SSL certificates are properly configured
+2. Use the appropriate secure port
+3. Provide SSL certificates if using self-signed certs
+
+## Common Issues
+
+### Connection Failed
+If you can't connect:
+- Verify host and port
+- Check username and password
+- Confirm SSL settings match server configuration
+
+### Permission Errors
+If you see access denied messages:
+- Verify user permissions
+- Check database access grants
+- Confirm table access rights
+
+### Query Execution Issues
+If queries fail:
+- Verify table existence
+- Check column permissions
+- Confirm query syntax matches ClickHouse version
+
+### Network Issues
+If experiencing timeout errors:
+- Check firewall rules
+- Verify network connectivity
+- Confirm server is accepting connections
