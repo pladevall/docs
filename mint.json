@@ -71,8 +71,8 @@
     {
       "group": "Databases",
       "pages": [
-        "databases/postgresql",
-        "databases/mySQL",
+        "databases/postgreSQL",
+        "databases/mysql",
         "databases/clickhouse",
         "databases/redshift",
         "databases/snowflake", 
