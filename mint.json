@@ -37,9 +37,9 @@
       "url": "https://mintlify.com/community"
     },
     {
-      "name": "Blog",
+      "name": "Changelog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://index.app/changelog"
     }
   ],
   "navigation": [
