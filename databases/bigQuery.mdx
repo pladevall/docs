@@ -74,3 +74,28 @@ Open your downloaded JSON file and locate these fields:
 - `private_key`
 
 Enter these values in the corresponding fields in Index's database connection form.
+
+## Required Permissions
+
+For custom role configuration, ensure these permissions are included:
+
+- `bigquery.datasets.get`
+- `bigquery.jobs.create`
+- `bigquery.tables.get`
+- `bigquery.tables.getData`
+- `bigquery.tables.list`
+
+## Common Issues
+
+### Decoder Error
+
+If you encounter `error:1E08010C:DECODER routines::unsupported`, verify your private key format matches:
+
+```
+-----BEGIN PRIVATE KEY-----\\nMII...tvY\\n-----END PRIVATE KEY-----\\n
+
+```
+
+### Invalid JWT Signature
+
+If you see `invalid_grant: Invalid JWT Signature`, your private key may be invalid. Generate a new one through your service account settings.
