@@ -54,17 +54,16 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development",
-        "clickhouse"
+        "development"
       ]
     },
     {
       "group": "Databases",
       "pages": [
-        "PostgreSQL",
-        "Redshift",
-        "Snowflake", 
-        "BigQuery"
+        "databases/postgresql",
+        "databases/redshift",
+        "databases/snowflake", 
+        "databases/bigquery"
       ]
     },
     {
