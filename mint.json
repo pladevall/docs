@@ -42,6 +42,14 @@
       ]
     },
     {
+      "group": "Using Index",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "development"
+      ]
+    },
+    {
       "group": "Databases",
       "pages": [
         "databases/postgreSQL",
