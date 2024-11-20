@@ -55,3 +55,22 @@ Assign these two roles to your service account:
 
 - BigQuery Data Viewer
 - BigQuery Job User
+
+### Generating Authentication Credentials
+
+1. Locate your service account in the overview
+2. Open the Actions menu
+3. Select "Manage keys"
+4. Click "Add key" → "Create new key"
+5. Choose JSON as your key type
+6. Download the generated JSON file
+
+### Connecting to Index
+
+Open your downloaded JSON file and locate these fields:
+
+- `project_id`
+- `client_email`
+- `private_key`
+
+Enter these values in the corresponding fields in Index's database connection form.
