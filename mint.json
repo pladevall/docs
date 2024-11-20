@@ -44,9 +44,7 @@
     {
       "group": "Using Index",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "indexAI"
       ]
     },
     {
