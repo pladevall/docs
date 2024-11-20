@@ -22,8 +22,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Launch Index",
+    "url": "https://index.app"
   },
   "tabs": [
     {
@@ -54,7 +54,8 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development"
+        "development",
+        "clickhouse"
       ]
     },
     {
