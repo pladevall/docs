@@ -58,15 +58,6 @@
       ]
     },
     {
-      "group": "Databases",
-      "pages": [
-        "databases/postgresql",
-        "databases/redshift",
-        "databases/snowflake", 
-        "databases/bigquery"
-      ]
-    },
-    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",
@@ -75,6 +66,15 @@
         "essentials/settings",
         "essentials/navigation",
         "essentials/reusable-snippets"
+      ]
+    },
+    {
+      "group": "Databases",
+      "pages": [
+        "databases/postgresql",
+        "databases/redshift",
+        "databases/snowflake", 
+        "databases/bigQuery"
       ]
     },
     {
