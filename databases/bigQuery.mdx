@@ -1,4 +1,42 @@
+---
+title: "Connecting BigQuery to Index"
+---
+
 # Connecting BigQuery to Index
+
+**Add a BigQuery connection to Index**
+
+1. **Connections: Open** the Connections page in Index.
+2. **Add Connection: Click** Add Connection.
+3. **BigQuery: Select** BigQuery from the dropdown.
+
+![BigQuery Connection on Index](/images/178_2x_shots_so.png)
+
+1. **Region: **You've set this up yourself in the Region selector on BigQuery.
+   - If you whitelist IPs, add **35.193.242.153**.
+2. **Service account: **Paste your JSON service account.
+
+        Sample JSON Configuration
+
+```json expandable
+  "type": "service_account",
+  "project_id": "project-name-123456",
+  "private_key_id": "efb9f928a3869d2d20c87e108405d7f0bf68a753",
+  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIuTx+U=\\n-----END PRIVATE KEY-----\\n",
+  "client_email": "index@project-name-123456.iam.gserviceaccount.com",
+  "client_id": "123456789",
+  "auth_uri": "<https://accounts.google.com/o/oauth2/auth>",
+  "token_uri": "<https://oauth2.googleapis.com/token>",
+  "auth_provider_x509_cert_url": "<https://www.googleapis.com/oauth2/v1/certs>",
+  "client_x509_cert_url": "<https://www.googleapis.com/robot/v1/metadata/x509/index%40project-name-123456.iam.gserviceaccount.com>"
+```
+
+3. **Name: **Enter a connection name (e.g., “CompanyName Connection”).
+4. **Test: **Click Test connection, then **Add connection**.
+
+# Creating a Service Account
+
+> Only proceed if you DO NOT have a service account
 
 To establish a connection between Index and your BigQuery database, you'll need to configure a service account in Google Cloud Platform (GCP) with appropriate data access permissions.
 
@@ -6,10 +44,9 @@ To establish a connection between Index and your BigQuery database, you'll need 
 
 To successfully connect, you'll need three essential pieces of information:
 
-* Project ID
-* Service Account Email
-* Private Key
-
+- Project ID
+- Service Account Email
+- Private Key
 
 ## Connection Requirements
 
@@ -23,14 +60,12 @@ To successfully connect, you'll need three essential pieces of information:
 
 ```
 project-name-123456
-
 ```
 
 **Service Account Email Format Example:**
 
 ```
 serviceaccount@project-name-123456.iam.gserviceaccount.com
-
 ```
 
 **Private Key Format Example:**
@@ -39,14 +74,13 @@ serviceaccount@project-name-123456.iam.gserviceaccount.com
 -----BEGIN PRIVATE KEY-----\\n
 MIIEvgIBADANBgkq...F6HhhtvY\\n
 -----END PRIVATE KEY-----\\n
-
 ```
 
 ## Service Account Setup Guide
 
 ### Creating Your Service Account
 
-1. Visit the GCP Console's IAM & Admin > Service Account section
+1. Visit the GCP Console's IAM & Admin \> Service Account section
 2. Click "Create Account"
 
 ### Configuring Permissions
@@ -89,6 +123,7 @@ Enter these values in the corresponding fields in Index's database connection fo
   "auth_provider_x509_cert_url": "<https://www.googleapis.com/oauth2/v1/certs>",
   "client_x509_cert_url": "<https://www.googleapis.com/robot/v1/metadata/x509/index%40project-name-123456.iam.gserviceaccount.com>"
 ```
+
 ## Required Permissions
 
 For custom role configuration, ensure these permissions are included:
@@ -107,7 +142,6 @@ If you encounter `error:1E08010C:DECODER routines::unsupported`, verify your pri
 
 ```
 -----BEGIN PRIVATE KEY-----\\nMII...tvY\\n-----END PRIVATE KEY-----\\n
-
 ```
 
 ### Invalid JWT Signature
