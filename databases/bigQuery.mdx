@@ -6,15 +6,23 @@ title: "Connecting BigQuery to Index"
 
 **Add a BigQuery connection to Index**
 
-1. **Connections: Open** the Connections page in Index.
-2. **Add Connection: Click** Add Connection.
-3. **BigQuery: Select** BigQuery from the dropdown.
+1. **Connections: **Open the Connections page in Index.
+
+<img
+  src="/images/183_2x_shots_so.png"
+  alt="Adding connection to index"
+  title="Adding connection to index"
+  className="mx-auto"
+/>
+
+2. **Add Connection: **Click **Add Connection**.
+3. **Select Connection Type: **Select **BigQuery** from the dropdown.
 
 ![BigQuery Connection on Index](/images/178_2x_shots_so.png)
 
-1. **Region: **You've set this up yourself in the Region selector on BigQuery.
+4. **Region: **You've set this up yourself in the Region selector on BigQuery.
    - If you whitelist IPs, add **35.193.242.153**.
-2. **Service account: **Paste your JSON service account.
+5. **Service account: **Paste your JSON service account.
 
         Sample JSON Configuration
 
@@ -31,8 +39,8 @@ title: "Connecting BigQuery to Index"
   "client_x509_cert_url": "<https://www.googleapis.com/robot/v1/metadata/x509/index%40project-name-123456.iam.gserviceaccount.com>"
 ```
 
-3. **Name: **Enter a connection name (e.g., “CompanyName Connection”).
-4. **Test: **Click Test connection, then **Add connection**.
+6. **Name: **Enter a connection name (e.g., “CompanyName Connection”).
+7. **Test: **Click Test connection, then **Add connection**.
 
 # Creating a Service Account
 
